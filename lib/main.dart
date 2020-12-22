@@ -1,21 +1,79 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_chat/Bmi-calculator/input_page.dart';
+import 'package:flash_chat/Fonts/fontintro.dart';
+import 'package:flash_chat/screens/combined.dart';
 import 'package:flutter/material.dart';
 import 'package:flash_chat/screens/welcome_screen.dart';
 import 'package:flash_chat/screens/login_screen.dart';
 import 'package:flash_chat/screens/registration_screen.dart';
 import 'package:flash_chat/screens/chat_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(FlashChat());
+//Future<void> main() async
+//{
+ // WidgetsFlutterBinding.ensureInitialized();
+ // await Firebase.initializeApp();
+ // runApp(FlashChat());
+//}
 
-class FlashChat extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+//class FlashChat extends StatelessWidget
+//{
+ // @override
+ // Widget build(BuildContext context)
+ // {
+  //  return MaterialApp(
+  //      home: WelcomeScreen(),
+   //     color: Colors.white,
+   //     initialRoute: WelcomeScreen.id,
+   //     routes:
+     //   {
+     //     WelcomeScreen.id : (context)=> WelcomeScreen(),
+    //     LoginScreen.id:(context)=>LoginScreen(),
+       //   RegistrationScreen.id:(context)=>RegistrationScreen(),
+      //    ChatScreen.id:(context)=>ChatScreen(),
+      //  }
+    //);
+ // }
+//}
+
+
+
+
+Future<void> main() async
+{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  SharedPreferences prefs=await SharedPreferences.getInstance();
+  var email=prefs.getString('email');
+
+  runApp(MaterialApp(
+
       theme: ThemeData.dark().copyWith(
-        textTheme: TextTheme(
-          body1: TextStyle(color: Colors.black54),
-        ),
+        primaryColor: Color(0xFF0A0E21),
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
       ),
-      home: WelcomeScreen(),
-    );
-  }
+    home: Text(email==null? WelcomeScreen.id:ChatScreen.id),
+    initialRoute: WelcomeScreen.id,
+        routes:
+        {
+          Listele.id: (context)=>Listele(),
+          InputPage.id:(context)=>InputPage(),
+          WelcomeScreen.id: (context) => WelcomeScreen(),
+          LoginScreen.id: (context) => LoginScreen(),
+          RegistrationScreen.id: (context) => RegistrationScreen(),
+          ChatScreen.id: (context) => ChatScreen(),
+          FontIntro.id: (context) =>FontIntro(),
+        }
+  ));
 }
+
+
+
+
+
+
+
+
+
+
+

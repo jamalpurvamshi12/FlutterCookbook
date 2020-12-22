@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "331488227282",
+    "project_id": "flashchat2-6648c",
+    "storage_bucket": "flashchat2-6648c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331488227282:android:29e451a7c76ace61faa20b",
+        "android_client_info": {
+          "package_name": "co.appbrewery.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331488227282-5dv3k855clbv701mk1h0e1jl31oipp69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACmaR_V5AbqiyvtzLf1FQgZ33D-PN1JZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331488227282-5dv3k855clbv701mk1h0e1jl31oipp69.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

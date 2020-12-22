@@ -1,48 +1,28 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flash_chat/Bmi-calculator/input_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/Fonts/fontintro.dart';
+import 'package:flash_chat/screens/registration_screen.dart';
+import 'package:flash_chat/screens/welcome_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'login_screen.dart';
-import 'registration_screen.dart';
 
-class WelcomeScreen extends StatefulWidget
+class Listele extends StatefulWidget
 {
-
-  static const String id='welcome_screen';
+  static const String id='combined';
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _ListeleState createState() => _ListeleState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProviderStateMixin
-{
-  AnimationController controller;
-
+class _ListeleState extends State<Listele> {
   @override
-  void initState() {
-    controller=AnimationController(
-      duration: Duration(seconds: 2),
-      vsync: this,
-    );
-    controller.forward();
-
-    controller.addListener(()
-    {
-      setState(() {
-
-      });
-      print(controller.value);
-    }
-    );
-
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context)
-  {
-    return Scaffold(
-      backgroundColor: Colors.white.withOpacity(controller.value),
+  Widget build(BuildContext context) {
+    var controller;
+    return  Scaffold(
+      backgroundColor: Colors.red.withOpacity(controller.value),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -67,7 +47,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
 
                   text:['Flash Chat'],
                   textStyle: TextStyle(
-                    fontFamily: 'Pacifico',
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
@@ -93,27 +72,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
               },
               color: Colors.lightBlue,
             ),
-
-      RoundedButton(
-        title: 'Bio',
-        onPressed:()
-        {
-          Navigator.pushNamed(context, FontIntro.id);
-        },
-        color: Colors.lightBlue,
-      ),
-
-      RoundedButton(
-        title: 'BMI',
-        onPressed:()
-        {
-          Navigator.pushNamed(context, InputPage.id);
-        },
-        color: Colors.lightBlue,
-      ),
           ],
-        )
         ),
+      ),
     );
   }
 }
